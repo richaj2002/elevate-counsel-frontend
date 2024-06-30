@@ -1,5 +1,5 @@
-const UserDashboard =  () => {
-    return <div>UserDashboard</div>
-}
+const UserDashboard = () => {
+  return <div>UserDashboard</div>;
+};
 
 export default UserDashboard;

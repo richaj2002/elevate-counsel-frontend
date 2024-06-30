@@ -1,5 +1,5 @@
-const DashboardNavBar =  () => {
-    return <div>DashboardNavBar</div>
-}
+const DashboardNavBar = () => {
+  return <div>DashboardNavBar</div>;
+};
 
 export default DashboardNavBar;
