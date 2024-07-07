@@ -7,7 +7,8 @@ import Counselors from '@/components/landing/Counselors';
 import AboutUs from '@/components/landing/AboutUs';
 import ContactUs from '@/components/landing/ContactUs';
 import SignIn from '@/components/landing/SignIn';
-import SignUp from '@/components/landing/SignUp';
+import CounselorSignUp from '@/components/landing/CounselorSignUp';
+import UserSignUp from '@/components/landing/UserSignUp';
 import NotFound from '@/components/utils/NotFound';
 
 export const Landing = () => {
@@ -21,7 +22,8 @@ export const Landing = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/counselor-sign-up" element={<CounselorSignUp />} />
+        <Route path="/user-sign-up" element={<UserSignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

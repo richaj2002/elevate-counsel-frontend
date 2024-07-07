@@ -1,4 +1,4 @@
-import { Routes, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Navigate, useLocation, Route } from 'react-router-dom';
 import ProtectedRoute from '@/routes/ProtectedRoute';
 import AdminDashboard from '@/components/dashboard/AdminDashboard';
 import UserDashboard from '@/components/dashboard/UserDashboard';
@@ -15,9 +15,8 @@ const Dashboard = () => {
 
   return (
     <Routes>
-      <ProtectedRoute
+      <Route
         path=""
-        roles={['admin', 'user', 'counselor']}
         element={
           user.role === 'admin' ? (
             <AdminDashboard />
@@ -25,7 +24,9 @@ const Dashboard = () => {
             <UserDashboard />
           ) : user.role === 'counselor' ? (
             <CounselorDashboard />
-          ) : null // Handle any other roles or scenarios
+          ) : (
+            <NotFound />
+          )
         }
       />
     </Routes>

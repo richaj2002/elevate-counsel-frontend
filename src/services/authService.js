@@ -3,19 +3,30 @@ import axios from 'axios';
 export const API_URL = 'http://localhost:3000';
 
 export const authService = {
-  login: async (username, password) => {
-    const response = await axios.post(`${API_URL}/login`, {
-      username,
-      password,
-    });
-    if (response.data.accessToken) {
+  login: async (email, password) => {
+    const response = await axios.post(
+      `${API_URL}/auth/login`,
+      {
+        email,
+        password,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    if (response.data.data && response.data.data.accessToken) {
+      const now = new Date();
       const userData = {
-        ...response.data,
+        ...response.data.data,
         loginTime: now.getTime(),
       };
       localStorage.setItem('user', JSON.stringify(userData));
+      return userData;
+    } else {
+      throw Error('Something went wrong.');
     }
-    return userData;
   },
 
   logout: () => {
@@ -40,12 +51,20 @@ export const authService = {
         return null;
       }
 
-      const response = await axios.post(`${API_URL}/refresh-token`, {
-        refreshToken: user.refreshToken,
-      });
-      if (response.data.accessToken) {
+      const response = await axios.post(
+        `${API_URL}/auth/refresh-token`,
+        {
+          refreshToken: user.refreshToken,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      if (response.data.data && response.data.data.accessToken) {
         const userData = {
-          ...response.data,
+          ...response.data.data,
           loginTime: user.loginTime,
         };
         localStorage.setItem('user', JSON.stringify(userData));
