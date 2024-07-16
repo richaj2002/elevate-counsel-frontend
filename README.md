@@ -7,9 +7,9 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-# elevate-counsel-frontend
+## elevate-counsel-frontend
 Appointment Scheduler for Career and Soft Skills Counseling
-===========================================================
+--------------------------------------------------------------
 # Project Overview
 This project focuses on developing the frontend of an Appointment Scheduler designed for students seeking career counseling, soft skills improvement (such as communication or grooming), and mental health support. The system facilitates booking sessions, managing schedules, and providing a user-friendly interface for both students and counselors.
 
@@ -32,7 +32,7 @@ As a student, I want to view available time slots for counseling sessions.
 As a counselor, I want to manage my availability and see booked appointments.
 As an administrator, I want to monitor overall system activity and manage user accounts.
 
-# Data Models
+## Data Models
 --------------------------------------------------
 ### User Table
 | Column Name | Data Type | Description |
@@ -62,3 +62,11 @@ As an administrator, I want to monitor overall system activity and manage user a
 | Name        | VARCHAR   | Name of the counselor |
 | Email       | VARCHAR   | Email address of the counselor |
 | Specialization | VARCHAR | Area of specialization (career counseling, soft skills improvement, mental health, etc.) |
+
+## Installation and Setup
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/appointment-scheduler.git
+command : npm i
+for run the project : npm run dev
+   
