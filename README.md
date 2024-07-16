@@ -1,4 +1,4 @@
-# React + Vite
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -7,8 +7,9 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## elevate-counsel-frontend
-# Appointment Scheduler for Career and Soft Skills Counseling
+# elevate-counsel-frontend
+----------------------------------------------------------------------------------------------
+## Appointment Scheduler for Career and Soft Skills Counseling
 
 ## Project Overview
 This project focuses on developing the frontend of an Appointment Scheduler designed for students seeking career counseling, soft skills improvement (such as communication or grooming), and mental health support. The system facilitates booking sessions, managing schedules, and providing a user-friendly interface for both students and counselors.
@@ -26,7 +27,6 @@ This project focuses on developing the frontend of an Appointment Scheduler desi
 - **Profile Management**: Users can update their personal information and manage their account settings.
 
 ## User Stories 
-
 - Present user stories to Explain how different types of users (students, counselors) will interact with the system. 
 - For example:
 - As a student, I want to view available time slots for counseling sessions.
@@ -36,9 +36,6 @@ This project focuses on developing the frontend of an Appointment Scheduler desi
 
 ## Data Models
 
-
-## Data Models
---------------------------------------------------
 ### User Table
 | Column Name | Data Type | Description |
 | ----------- | --------- | ----------- |
@@ -73,7 +70,6 @@ This project focuses on developing the frontend of an Appointment Scheduler desi
    ```sh
    git clone https://github.com/yourusername/appointment-scheduler.git
 
-command : npm i
------
-for run the project : npm run dev
+2. Command : npm i
+3. For run the project : npm run dev
    
