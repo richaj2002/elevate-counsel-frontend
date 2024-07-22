@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Input, Checkbox, Button, Typography } from '@material-tailwind/react';
+import {
+  Input,
+  Checkbox,
+  Button,
+  Typography,
+  Textarea,
+} from '@material-tailwind/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { countries } from 'countries-list';
 import axios from 'axios';
@@ -54,7 +60,9 @@ const CounselorSignUp = () => {
   useEffect(() => {
     const fetchSpecializations = async () => {
       try {
-        const response = await axios.get(`${API_URL}/specialization`);
+        const response = await axios.get(`${API_URL}/specialization`, {
+          noAuth: true,
+        });
         const specializationResponse = response.data.data.map(
           (specialization) => ({
             value: specialization.id,
@@ -153,11 +161,7 @@ const CounselorSignUp = () => {
           specialization: formData.specialization,
           role: 'counselor',
         },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
+        { noAuth: true }
       );
       setIsRegistering(false);
       toast.success(response.data.message);
@@ -462,7 +466,7 @@ const CounselorSignUp = () => {
             >
               Counselor Description
             </Typography>
-            <Input
+            <Textarea
               size="lg"
               placeholder="Describe yourself"
               className="!border-t-blue-gray-200 focus:!border-t-gray-900"

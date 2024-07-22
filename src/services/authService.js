@@ -10,11 +10,7 @@ export const authService = {
         email,
         password,
       },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
+      { noAuth: true }
     );
     if (response.data.data && response.data.data.accessToken) {
       const now = new Date();
@@ -56,11 +52,7 @@ export const authService = {
         {
           refreshToken: user.refreshToken,
         },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
+        { noAuth: true }
       );
       if (response.data.data && response.data.data.accessToken) {
         const userData = {

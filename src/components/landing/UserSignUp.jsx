@@ -115,11 +115,7 @@ const UserSignUp = () => {
           country: formData.country,
           role: 'user',
         },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
+        { noAuth: true }
       );
       setIsRegistering(false);
       toast.success(response.data.message);

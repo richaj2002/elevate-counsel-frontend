@@ -4,13 +4,15 @@ import { authService } from '@/services/authService';
 export const setupAxiosInterceptors = () => {
   axios.interceptors.request.use(
     async (config) => {
-      const user = authService.getCurrentUser();
-      if (user && user.accessToken) {
-        if (authService.isTokenExpired(user.accessToken)) {
-          const newAccessToken = await authService.refreshToken();
-          config.headers.Authorization = `Bearer ${newAccessToken}`;
-        } else {
-          config.headers.Authorization = `Bearer ${user.accessToken}`;
+      if (!config.noAuth) {
+        const user = authService.getCurrentUser();
+        if (user && user.accessToken) {
+          if (authService.isTokenExpired(user.accessToken)) {
+            const newAccessToken = await authService.refreshToken();
+            config.headers.Authorization = `Bearer ${newAccessToken}`;
+          } else {
+            config.headers.Authorization = `Bearer ${user.accessToken}`;
+          }
         }
       }
       return config;
