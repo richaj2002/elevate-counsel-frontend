@@ -165,10 +165,6 @@ const AddSlot = () => {
           })
         );
         setCounselorSpecializations(specializationResponse);
-
-        const slots = await axios.get(`${API_URL}/slot/counselor/dashboard`);
-        console.log(slots);
-        setCounselorSpecializations(specializationResponse);
       } catch (error) {
         console.error('Error fetching counselor specializations:', error);
       }
