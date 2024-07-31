@@ -1,0 +1,111 @@
+/* Counselors CSS */
+.counselors-grid {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    justify-content: center;
+}
+
+.counselor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.counselor-card img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.counselor-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.counselor-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.counselor-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.appointment-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+@media (min-width: 901px) {
+    .counselors-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) and (min-width: 481px) {
+    .counselors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .counselors-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.counselor-slots {
+    height: 80vh;
+    width: 80vw;
+}
+
+.counselor-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (max-width: 480px) {
+    .counselor-details {
+        justify-content: center;
+    }
+}
+
+.counselor-details img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+.counselor-slot-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}

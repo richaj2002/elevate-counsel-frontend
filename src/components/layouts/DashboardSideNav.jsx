@@ -1,7 +1,8 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { authService } from '@/services/authService';
 import { navData } from '@/components/layouts/dashboardNavData';
 import { useEffect, useRef } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
 
 const DashboardSideNav = ({
   isMobileSideNavBehaviourEnable,
@@ -32,6 +33,23 @@ const DashboardSideNav = ({
     navigate('/sign-in');
   };
 
+  const confirmLogout = () => {
+    confirmAlert({
+      title: 'Confirm to logout',
+      message: 'Are you sure you want to logout?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => logout(),
+        },
+        {
+          label: 'No',
+          onClick: () => {},
+        },
+      ],
+    });
+  };
+
   useEffect(() => {
     if (isMobileSideNavBehaviourEnable) {
       const handleClickOutside = (event) => {
@@ -58,7 +76,9 @@ const DashboardSideNav = ({
           : 'relative translate-x-0'
       }`}
     >
-      <div className="p-3 text-center text-xl font-bold">Elevate Counsel</div>
+      <Link to="/" className="p-3 text-center text-xl font-bold">
+        Elevate Counsel
+      </Link>
       <div className="flex flex-col p-3 space-y-2">
         {navData.map(
           (item, index) =>
@@ -86,7 +106,7 @@ const DashboardSideNav = ({
         )}
         <div
           className="flex items-center p-3 rounded hover:bg-white transition-colors "
-          onClick={logout}
+          onClick={confirmLogout}
         >
           <span className="mr-3">
             <svg

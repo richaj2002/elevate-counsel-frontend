@@ -24,3 +24,42 @@
 .time-picker-field:hover {
     border-color: hsl(0, 0%, 70%);
 }
+
+.profile-wrapper {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .profile-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.profile-photo {
+    flex-shrink: 0;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-photo img {
+    border-radius: 50%;
+    outline: 1px solid black;
+    outline-offset: 3px;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-form {
+    flex-grow: 1;
+}
+
+.upcoming-slots-wrapper {
+    margin-bottom: 1rem;
+}

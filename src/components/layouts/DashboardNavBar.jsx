@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { authService } from '@/services/authService';
 import { navData } from '@/components/layouts/dashboardNavData';
+import { confirmAlert } from 'react-confirm-alert';
 
 const DashboardNavBar = ({
   isMobileSideNavBehaviourEnable,
@@ -15,10 +16,30 @@ const DashboardNavBar = ({
     navigate('/sign-in');
   };
 
+  const openProfile = () => {
+    navigate('/dashboard/profile');
+  };
+
   const currentNavItem =
     navData.find((item) => `/dashboard${item.path}` === location.pathname) ||
     {};
 
+  const confirmLogout = () => {
+    confirmAlert({
+      title: 'Confirm to logout',
+      message: 'Are you sure you want to logout?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => logout(),
+        },
+        {
+          label: 'No',
+          onClick: () => {},
+        },
+      ],
+    });
+  };
   return (
     <div className="sticky top-0 flex justify-between items-center py-2 bg-gray-200">
       <div className="flex items-center">
@@ -62,7 +83,7 @@ const DashboardNavBar = ({
             />
           </svg>
         </div>
-        <div className="">
+        <div className="" onClick={openProfile}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -76,7 +97,7 @@ const DashboardNavBar = ({
             />
           </svg>
         </div>
-        <div className="logout" onClick={logout}>
+        <div className="logout" onClick={confirmLogout}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"

@@ -1,18 +1,25 @@
 import { Button } from '@material-tailwind/react';
 import UserLocalTime from '../utils/UserLocalTime';
 import calculateDuration from '@/utils/calculateDuration';
+import { useNavigate } from 'react-router-dom';
 
-const SlotCard = ({ slot, index, viewSlot }) => {
+const SlotCard = ({ slot, isFromCounselorDashboard = false }) => {
+  const navigate = useNavigate();
+  const viewSlot = (id) => {
+    navigate(`/dashboard/view-slot/${id}`);
+  };
+  const bookAppoinment = (id) => {
+    navigate(`/dashboard?bookSlot=${id}`);
+  };
   const duration = calculateDuration(slot.startTime, slot.endTime);
   return (
-    <div
-      className="slot bg-white rounded-lg p-4 min-w-full sm:min-w-[50%] md:min-w-[33.33%] lg:min-w-[25%] flex flex-col"
-      key={index}
-    >
+    <div className="slot bg-white rounded-lg p-4 min-w-full sm:min-w-[50%] md:min-w-[33.33%] lg:min-w-[25%] flex flex-col">
       <h6 className="text-lg font-semibold">{slot.specializationName}</h6>
-      <h6 className="text-sm text-gray-600">
-        Slot type: {slot.isOneOnOneSession ? 'Individual' : 'Grouped'}
-      </h6>
+      {isFromCounselorDashboard && (
+        <h6 className="text-sm text-gray-600">
+          Session type: {slot.isOneOnOneSession ? 'Individual' : 'Grouped'}
+        </h6>
+      )}
       <h6 className="text-sm text-gray-600">
         Start time: <UserLocalTime utcTime={slot.startTime} />
       </h6>
@@ -33,13 +40,24 @@ const SlotCard = ({ slot, index, viewSlot }) => {
           }}
         ></div>
       </div>
-      <Button
-        className="bg-purple-200 mt-3 self-start"
-        size="sm"
-        onClick={() => viewSlot(slot.id)}
-      >
-        More Info
-      </Button>
+      {isFromCounselorDashboard && (
+        <Button
+          className="bg-purple-200 mt-3 self-start"
+          size="sm"
+          onClick={() => viewSlot(slot.id)}
+        >
+          More Info
+        </Button>
+      )}
+      {!isFromCounselorDashboard && (
+        <Button
+          className="bg-purple-200 mt-3 self-start"
+          size="sm"
+          onClick={() => bookAppoinment(slot.id)}
+        >
+          Book
+        </Button>
+      )}
     </div>
   );
 };

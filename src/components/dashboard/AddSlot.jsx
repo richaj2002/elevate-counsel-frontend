@@ -358,8 +358,8 @@ const AddSlot = () => {
             color={'#ffffff'}
             loading={isSubmitting}
             size={15}
-            aria-label="Registering..."
-            data-testid="register-button"
+            aria-label="Adding..."
+            data-testid="add-slot-button"
           />
         </Button>
       </div>

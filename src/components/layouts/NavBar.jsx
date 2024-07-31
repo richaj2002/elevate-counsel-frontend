@@ -10,7 +10,9 @@ const NavBar = () => {
     <nav className="flex items-center justify-between p-5 bg-purple-200 text-black shadow-lg">
       <div className="flex items-center">
         {/* <img src="" alt="BeWise4Career" className="h-10" /> */}
-        <span className="ml-3 text-xl font-bold">BeWise4Career</span>
+        <Link to="/" className="ml-3 text-xl font-bold">
+          Elevate Counsel
+        </Link>
       </div>
       <ul className="flex items-center space-x-6">
         <li>
@@ -21,6 +23,11 @@ const NavBar = () => {
         <li>
           <Link to="/services" className="hover:text-purple-700">
             Services
+          </Link>
+        </li>
+        <li>
+          <Link to="/counselors" className="hover:text-purple-700">
+            Counselors
           </Link>
         </li>
         <li>

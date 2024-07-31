@@ -1,15 +1,9 @@
-import { useNavigate } from 'react-router-dom';
 import SlotCard from '@/components/layouts/SlorCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '@/services/authService';
 
 const CounselorDashboard = () => {
-  const navigate = useNavigate();
-  const viewSlot = (id) => {
-    navigate(`/dashboard/view-slot/${id}`);
-  };
-
   const [slots, setSlots] = useState({});
 
   useEffect(() => {
@@ -50,8 +44,7 @@ const CounselorDashboard = () => {
               <SlotCard
                 key={index}
                 slot={slot}
-                index={index}
-                viewSlot={viewSlot}
+                isFromCounselorDashboard={true}
               />
             ))}
           </div>
@@ -81,8 +74,7 @@ const CounselorDashboard = () => {
               <SlotCard
                 key={index}
                 slot={slot}
-                index={index}
-                viewSlot={viewSlot}
+                isFromCounselorDashboard={true}
               />
             ))}
           </div>
@@ -112,8 +104,7 @@ const CounselorDashboard = () => {
               <SlotCard
                 key={index}
                 slot={slot}
-                index={index}
-                viewSlot={viewSlot}
+                isFromCounselorDashboard={true}
               />
             ))}
           </div>
@@ -143,8 +134,7 @@ const CounselorDashboard = () => {
               <SlotCard
                 key={index}
                 slot={slot}
-                index={index}
-                viewSlot={viewSlot}
+                isFromCounselorDashboard={true}
               />
             ))}
           </div>
